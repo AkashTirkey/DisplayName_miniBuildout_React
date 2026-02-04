@@ -8,11 +8,13 @@ const DisplayName = () => {
 
   const handleSubmit = (e)=>{
     e.preventDefault();
+    if(!firstName || !lastName) return;
 
 setFullName(`${firstName} ${lastName}`);
   }
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       <h1>Full Name Display</h1>
       <label style={{display:"block"}}>
@@ -24,8 +26,9 @@ setFullName(`${firstName} ${lastName}`);
       </label>
       <button type="submit">Submit</button>
 
-      {fullName && <h2>Full Name: {fullName}</h2>}
     </form>
+      {fullName && <h2>Full Name: {fullName}</h2>}
+      </>
   );
 };
 
